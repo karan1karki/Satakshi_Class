@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+    </head>
+    <body>
+
+        <h1 >Simple Calculator</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <input type="number" name="fn" step="any" placeholder="First number" required>
+            <br><br>
+
+            <input type="number" name="sn" step="any" placeholder="Second number" required>
+            <br><br>
+
+            <input type="number" name="tn" step="any" placeholder="Third number" required>
+            <br><br>
+
+            <select name="operation">  
+                <option value="add">Add (+)</option>
+                <option value="subtract">Subtract (-)</option>
+                <option value="multiply">Multiply (×)</option>
+                <option value="divide">Divide (÷)</option>
+            </select>
+            <br><br>
+
+            <button type="submit">Calculate</button>
+        </form>
+        {% if result is not none %}
+            <h2>Result: {{ result }}</h2>
+        {% endif %}
+
+        {% if name is not none %}
+            <h1>Your Name: {{name }}</h1>
+        {% endif %}
+    </body>
+</html>
